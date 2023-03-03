@@ -1,0 +1,73 @@
+<%- include("partials/header"); -%>
+    <!-- all products -->
+    <div class="products">
+        <h1 class="center">All Available Products</h1>
+        <div class="productBoxes">
+            <!-- <div class="product">
+                <div class="topBox">
+                    <a href="product"><img src="..//images/img/products/f6.jpg" alt=""></a>
+                    
+                </div>
+                <div class="bottomBox">
+                    <div class="left">
+                        <p class="owner">Kiran</p>
+                        <p class="productName">Advanced casio</p>
+                        <p class="stars">⭐⭐⭐⭐⭐</p>
+                        <p class="price"><span>₹100</span> per day.</p>
+                    </div>
+                    <div class="right">
+                        <div class="cartButton">
+                            <a href="product"><i class="fa-solid fa-cart-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+            <% products.forEach((product)=>{ %>
+
+                <% if(product.owner!=currentUser){ %>
+                    <% if( product.status == "Available" ){ %>
+                        <div class="product">
+                      <% } else{ %>  
+                        <div class="product opacity">
+                     <% } %>
+                    
+                        <div class="topBox">
+                            <a href="product/<%= product._id %>"><img src="/uploads/<%= product.productImages[0].productImage1 %>" alt=""></a>
+                        </div>
+                        <div class="bottomBox">
+                            <div class="left">
+                                <p class="owner"><%= product.ownerName %></p>
+                                <p class="productName"><%= product.productName %></p>
+                                <p class="stars">⭐⭐⭐⭐⭐</p>
+                                <p class="price"><span><%= product.productPrice %></span> per day.</p>
+                                <% if(product.status == "Available"){ %>
+                                    
+                                  <% } else{ %>  
+                                    <p class="unavailable">Currently Unavailable</p>
+                                 <% } %>
+                                
+                            </div>
+                            <div class="right">
+                                <div class="cartButton">
+                                    <a href="product/<%= product._id %>"><i class="fa-solid fa-cart-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <% } else{ %>  
+                 <% } %>
+            <% }) %>
+                
+        </div>
+        
+    </div>
+    <!-- all products -->
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/55ea4909ec.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <title>Add New Product</title>
+    <link rel="stylesheet" href="/css/myProducts.css">
+</head>
+<body>
+
+  <div class="main">
+    <div class="left">
+      <a href="/"><h2 class="center">Rent It</h2></a>
+      
+      <ul>
+        <a href="myProfile"><li>&emsp;<i class="fa-solid fa-user"></i> &emsp; My Profile</li></a>
+        <a href="myProducts"><li style="background-color: white;">&emsp;<i class="fa-solid fa-cart-shopping"></i> &emsp; My Products</li></a>
+      </ul>
+    </div>
+    <div class="right">
+      <h1 class="center" id="my">My Products</h1>
+      <div class="products">
+
+        <% products.forEach((product)=>{ %>
+
+          <% if( product.owner == currentUser ){ %>
+            <div class="product">
+              <div class="top">
+                <img src="/uploads/<%= product.productImages[0].productImage1 %>" alt="">
+              </div>
+              <div class="bottom">
+                <p class="title"><%= product.productName %></p>
+                <p class="price">₹ <%= product.productPrice %> Per Day.</p>
+                <div class="buttons">
+                  
+                  <form action="editProduct" method="post" class="editForm">
+                    <select name="status" id="" class="editButton">
+                      <option value=""><%= product.status %></option>
+                      <option value="Available">Available</option>
+                      <option value="Not Available">Not Available</option>
+                    </select>
+                    <input type="text" value="<%= product._id %>" name="currentProduct" hidden>
+                    &nbsp;&nbsp;
+                    <input type="submit" class="editButton" value="Update">
+                  </form>
+                  <form action="deleteProduct" method="post" class="deleteForm">
+                    <input type="text" value="<%= product._id %>" name="currentProduct" hidden>
+                    <input type="submit" class="deleteButton" value="Delete">
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% } %>
+
+          <% }) %>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>

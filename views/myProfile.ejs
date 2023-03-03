@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/55ea4909ec.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <title>Add New Product</title>
+    <link rel="stylesheet" href="/css/myProfile.css">
+</head>
+<body>
+
+  <div class="main">
+    <div class="left">
+      <a href="/"><h2 class="center">Rent It</h2></a>
+      
+      <ul>
+        <a href="myProfile"><li style="background-color: white;">&emsp;<i class="fa-solid fa-user"></i> &emsp; My Profile</li></a>
+        <a href="myProducts"><li>&emsp;<i class="fa-solid fa-cart-shopping"></i> &emsp; My Products</li></a>
+      </ul>
+    </div>
+    <div class="right">
+      <h1 class="center" id="my">My Profile</h1>
+      
+      <div class="formBox">
+        <form>
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="row gx-3">
+                  <div class="col-6  mb-3">
+                    <label class="form-label">Full name</label>
+                    <input class="form-control" type="text"  value="<%= user.fullName %>">
+                  </div> <!-- col .// -->
+                  <div class="col-6  mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input class="form-control" type="text"  value="<%= user.phoneNumber %>">
+                  </div> <!-- col .// -->
+                  <div class="col-lg-6  mb-3">
+                    <label class="form-label">Email</label>
+                    <input class="form-control" type="email"  value="<%= user.email %>">
+                  </div> <!-- col .// -->
+                  <div class="col-lg-6  mb-3">
+                    <label class="form-label">College Id</label>
+                    <input class="form-control" type="tel" placeholder="<%= user.collegeId %>" disabled>
+                  </div> <!-- col .// -->
+                  
+                </div> <!-- row.// -->
+              </div> <!-- col.// -->
+              <aside class="col-lg-4">
+                <figure class="text-lg-center">
+                  <img class="img-lg mb-5 img-avatar" src="/uploads/<%= user.profileImage %>" alt="User Photo" id="userImage" style="width: 200px; height: 200px">
+                  <figcaption>
+                    <a class="btn btn-outline-primary" href="#">
+                      <i class="icons material-icons md-backup"></i> Upload
+                    </a>
+                  </figcaption>
+                </figure>
+              </aside> <!-- col.// -->
+            </div> <!-- row.// -->
+            <br>
+            <div class="row">
+              <button class="btn btn-primary" type="submit">Save changes</button>
+              
+              <a href="logout"><button class="btn btn-danger">Log Out.</button></a>
+            </div>
+          </form>
+
+          <div class="row mt-4">
+          </div>
+          
+
+      </div>
+
+    </div>
+  </div>
+  
+</body>
+</html>

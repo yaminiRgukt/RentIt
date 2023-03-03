@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/55ea4909ec.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <title>Rent It</title>
+    <!-- <link rel="stylesheet" href="public/css/product.css"> -->
+    <script src="/js/popupS.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/popupS.min.css">
+    <style>
+          
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+    top: 13px;
+  }
+  .errorMessage{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+  }
+  .hidden{
+    display: none;
+  }
+    </style>
+
+</head>
+<body>
+
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+                  <p class="errorMessage hidden" id="errorMessage"></p>
+                  <form method="post" action="/register" enctype="multipart/form-data" autocomplete="off" onsubmit="return validate()">
+                    <!-- onsubmit="return validate()" -->
+                    <!-- enctype="multipart/form-data" -->
+                    <!-- enctype="multipart/form-data" -->
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="text" id="fullName" name="fullName" class="form-control form-control-lg" autocomplete="off" required/>
+                          <label class="form-label" for="fullName">Full Name</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control form-control-lg"  required/>
+                          <label class="form-label" for="phoneNumber">Phone Number</label>
+                        </div>
+      
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            <input type="email" id="emailAddress" name="username" class="form-control form-control-lg"  required/>
+                            <label class="form-label" for="emailAddress">Email</label>
+                          </div>
+                            
+          
+                          </div>
+                          <div class="col-md-6 mb-4">
+      
+                            <!-- <h6 class="mb-2 pb-1">ID Number: </h6> -->
+          
+                            <div class="form-check form-check-inline">
+                              <input type="text" id="collegeId" name="collegeId" class="form-control form-control-lg"  required>
+                            </div>
+                            <label class="form-label" for="collegeId">College ID Number</label>
+          
+                          </div>
+                      
+                       
+                    </div>
+      
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+      
+                          <div class="form-outline">
+                            <input type="file" id="IdCardImage" name="IdCardImage" class="form-control form-control-lg"  required/>
+                            <label class="form-label" for="IdCardImage">ID Card Image</label>
+                          </div>
+          
+                          </div>
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="file" id="ProfileImage" name="ProfileImage" class="form-control form-control-lg"  required/>
+                          <label class="form-label" for="ProfileImage">Profile Picture</label>
+                        </div>
+      
+                      </div>
+                    </div>
+
+
+                    <!-- password -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+      
+                            <div class="form-outline">
+                              <input type="password" id="password" name="password" class="form-control form-control-lg" required/>
+                              <label class="form-label" for="password">Password</label>
+                            </div>
+          
+                          </div>
+                          <div class="col-md-6 mb-4 pb-2">
+      
+                            <div class="form-outline">
+                              <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg"  required/>
+                              <label class="form-label" for="confirmPassword">Confirm Password</label>
+                            </div>
+                          </div>
+                      
+                      
+                    </div>
+      
+                    <div class="mt-1 pt-1">
+                      <input type="submit" class="btn btn-primary btn-lg" value="Register" id="register" name="register">
+                    </div>
+    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+
+      
+      <script type="text/javascript">
+        let registerButton = document.getElementById("register");
+        let errorMessage = document.getElementById("errorMessage");
+        function validate(){
+            let fullName = document.getElementById("fullName").value;
+            // let lastName = document.getElementById("lastName").value;
+            let phoneNumber = document.getElementById("phoneNumber").value;
+            let emailAddress = document.getElementById("emailAddress").value;
+            // let gender = document.querySelector('.genderInput:checked').value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            errorMessage.innerTex = "";
+            if(fullName.length<3){
+                document.getElementById("errorMessage").classList.remove("hidden");
+                errorMessage.innerText = "First name should be atleast 3 characters..."
+                return false;
+            }else if(!isValidPhone(phoneNumber)){
+                document.getElementById("errorMessage").classList.remove("hidden");
+                errorMessage.innerText = "\nInvalid phone number... Number should be of 10 digits and without country code...";
+                return false;
+            }else if(!isValidEmail(emailAddress)){
+                document.getElementById("errorMessage").classList.remove("hidden");
+                errorMessage.innerText = "\nInvalid email address... It must be a gmail account, rgukt sklm or rguktn account...";
+                return false;
+            }else if(!isValidPassword(password)){
+                document.getElementById("errorMessage").classList.remove("hidden");
+                errorMessage.innerText = "\nPassword should contain at least 8 characters including 1 special chacter, 1 uppercase and 1 lower case letter...";
+                return false;
+            }else if(password!=confirmPassword){
+                document.getElementById("errorMessage").classList.remove("hidden");
+                errorMessage.innerText = "\nPassword and confirm password should match...";
+                return false;
+            }else{
+                document.getElementById("errorMessage").classList.add("hidden"); 
+                return true;  
+            }
+        }
+
+        function isValidPassword(password){
+            let re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            return re.test(password);
+        }
+
+        function isValidPhone(number){
+            if (Number.isInteger(+number) && (number.length==10)){
+                return true;
+            }
+            return false;
+        }
+        function isValidEmail(email){
+            console.log(email)
+            if (email.endsWith("@gmail.com") || email.endsWith("@rguktsklm.ac.in") || email.endsWith("@rguktn.ac.in")){
+                return true;
+            }
+            return false;
+            // return true;
+        }
+
+        registerButton.addEventListener("click", function(e){
+            validate();
+        });
+
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>

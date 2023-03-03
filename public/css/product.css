@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap'); */
+
+:root {
+    --color-primary: #5ec576;
+    --color-secondary: #ffcb03;
+    --color-tertiary: #ff585f;
+    --color-primary-darker: #4bbb7d;
+    --color-secondary-darker: #ffbb00;
+    --color-tertiary-darker: #fd424b;
+    --color-primary-opacity: #5ec5763a;
+    --color-secondary-opacity: #ffcd0331;
+    --color-tertiary-opacity: #ff58602d;
+    --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif; 
+    background-color: #E4E6F4;
+    height: 100vh;
+    width: 100%;
+}
+
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background-color: #E4E6F4;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 100;
+}
+.navbar .right .nav{
+    display: flex;
+    list-style-type: none;
+}
+.navbar .right .nav .navItem{
+    margin: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.navbar .right .nav .navItem a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.navbar .right .nav .navItem a:hover{
+    color: #1c8e64;
+}
+
+/* product */
+.product{
+    width: 100%;
+    display: flex;
+    padding: 100px;
+    justify-content: space-between;
+    background-color: white;
+}
+.product .left{
+    width: 35%;
+    /* border: 1px solid black; */
+}
+.product .right{
+    /* border: 1px solid black; */
+    width: 60%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+}
+.product .left .mainImage{
+    width: 100%;
+    height: 65vh;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.product .left .mainImage img{
+    width: 100%;
+    height: 100%;
+}
+.product .left .subImages{
+    margin-top: 5px;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+}
+.product .left .subImages .subImage{
+    width: 24%;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    height: 100px;
+    cursor: pointer;
+}
+.product .left .subImages .subImage img{
+    width: 100%;
+    height: 100%;
+}
+.product .right .productName{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.product .right .productPrice{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.product .right .select{
+    /* width: 100px; */
+    padding: 9px 10px;
+    margin-bottom: 10px;
+}
+.product .right .addToCart{
+    padding: 7px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    /* font-weight: bold; */
+    background-color: #3a9a95;
+    color: white;
+    font-family: 'poppins';
+    transition: all 0.3s;
+}
+.product .right .descriptionTitle{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+
+/* product */
+
+/* reviews */
+
+.section3
+{
+    height: auto;
+}
+#cus{
+    margin-top: 50px;
+    text-align: center;
+}
+.slider
+{
+    width: 75%;
+    height: 80vh;
+    margin: 0px auto 20px auto;
+    position: relative;
+    padding: 0px 10px 50px 50px;
+    overflow: hidden
+}
+.slide
+{
+    position: absolute;
+    margin: 0px auto;
+    width: 80%;
+    height: 100px;
+    padding-left: 90px;
+    transition: all 0.4s;
+}
+.arrows
+{
+    border: none;
+    outline: none;
+    padding: 10px 13px;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: white;
+    font-size: 20px;
+}
+.arrowRight
+{
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+}
+.arrowLeft
+{
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+}
+.dots
+{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.dot
+{
+    border-radius: 50%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+}
+.dotActive
+{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.testimonialText
+{
+    padding: 50px;
+}
+
+.testimonialAuthor img
+{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 20px;
+}
+.testimonialAuthor p
+{
+    font-size: 15px;
+}
+.testimonialAuthor h6
+{
+    font-size: 20px;
+    font-weight: 500;
+}
+.lll
+{
+    margin: 40px 20px 0px 0px;
+}
+.testimonialAuthor
+{
+    display: flex;
+    margin: 20px;
+}
+.testimonial::before
+{
+    content: '\201C';
+    font-size: 130px;
+    color: var(--color-primary);
+    position: absolute;
+}
+.testimonialHeader
+{
+    margin: 10px;
+    font-size: 25px;
+    font-weight: 550;
+    color: rgba(0, 0, 0, 0.7);
+}
+.testimonialText > p
+{
+    margin-left: 10px;
+    padding: 10px 10px 0px 10px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 25px;
+    font-size: 18px;
+}
+  
+
+/* reviews */
+
+/* footer */
+
+footer{
+    width: 100%;
+    padding: 80px 100px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+footer .footerBoxes{
+    display: flex;
+    justify-content: space-between;
+}
+footer h4{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+footer p{
+    color: rgba(0, 0, 0, 0.5);
+    margin: 7px 0;
+}
+footer div:nth-child(2), footer div:nth-child(3){
+    cursor: pointer;
+}
+footer img{
+    border: 1px solid rgb(12, 12, 12);
+    border-radius: 10px;
+}
+#copyWrite{
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* footer */

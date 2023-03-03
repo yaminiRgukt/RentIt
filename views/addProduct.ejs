@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/55ea4909ec.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <title>Add New Product</title>
+    <link rel="stylesheet" href="/css/add.css">
+</head>
+<body>
+
+  <h1 class="center">Add new product</h1>
+
+  <div class="main">
+    <form method="post" action="/addProduct" enctype="multipart/form-data" class="form">
+      <div class="left">
+        <div class="row col">
+          <label for="">Product Name:</label>
+          <input type="text" name="productName" placeholder="Enter product name" required>
+        </div>
+        <div class="row">
+          <div class="one col">
+            <label for="">Category:</label>
+            <input type="text" name="productCategory" placeholder="Enter product name" required>
+          </div>
+          <div class="two col">
+            <label for="">Price:</label>
+            <input type="number" name="productPrice" placeholder="Enter product price" required>
+          </div>
+        </div>
+        <div class="row col">
+          <label for="">Description:</label>
+          <textarea name="productDescription" id="" cols="30" rows="10" required></textarea>
+        </div>
+        <div class="row">
+          <button class="addButton">Add Product</button>
+
+        </div>
+
+
+      </div>
+      <div class="right">
+        <p class="center" id="pi">Product Images:</p>
+        <div class="images">
+          <div class="total">
+            <div class="image" id="image1">
+              <img id="output1" width="200"  required/>
+            </div>
+            <div class="upload">
+              <p><input type="file"  accept="image/*" name="productImage1" id="file1"  onchange="loadFile1(event)" style="display: none;"></p>
+              <p><label for="file1" style="cursor: pointer;">Upload Image</label></p>
+            </div>
+          </div>
+          <div class="total">
+            <div class="image" id="image1">
+              <img id="output2" width="200" required/>
+            </div>
+            <div class="upload">
+              <p><input type="file"  accept="image/*" name="productImage2" id="file2"  onchange="loadFile2(event)" style="display: none;"></p>
+              <p><label for="file2" style="cursor: pointer;">Upload Image</label></p>
+            </div>
+          </div>
+          <div class="total">
+            <div class="image" id="image1">
+              <img id="output3" width="200" required/>
+            </div>
+            <div class="upload">
+              <p><input type="file" name="productImage3" accept="image/*" id="file3"  onchange="loadFile3(event)" style="display: none;"></p>
+              <p><label for="file3" style="cursor: pointer;">Upload Image</label></p>
+            </div>
+          </div>
+          <div class="total">
+            <div class="image" id="image1">
+              <img id="output4" width="200" required/>
+            </div>
+            <div class="upload">
+              <p><input type="file" name="productImage4" accept="image/*"  id="file4"  onchange="loadFile4(event)" style="display: none;"></p>
+              <p><label for="file4" style="cursor: pointer;">Upload Image</label></p>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+
+<script>
+    var loadFile1 = function(event) {
+      var image = document.getElementById('output1');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var loadFile2 = function(event) {
+      var image = document.getElementById('output2');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var loadFile3 = function(event) {
+      var image = document.getElementById('output3');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var loadFile4 = function(event) {
+      var image = document.getElementById('output4');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+
+</body>
+</html>
